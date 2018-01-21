@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="https://use.fontawesome.com/e45e963e7b.js"></script>
+
+    <style>
+        #retour {
+            background-color: #337ab7;
+            border-color: #337ab7;
+            margin-top: 5%;
+        }
+
+        #formcle input{
+            margin-bottom: 15px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+    {% block body %}
+    <div style="text-align:center;" class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <h3 style="color:#337ab7;" class="text-center text-danger">
+                            MODIFIER LES INFORMATIONS
+                        </h3>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+
+                {{ form_start(edit_form) }}
+                <div class="row">
+                    <div id="exampleInputEmail1" class="col-md-2"></div>
+                    <div  class="col-md-8">
+                    {{form_row(edit_form.nom)}}
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div id="formcle" class="col-md-8">
+                        {{form_row(edit_form.quantite)}}
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div id="formcle" class="col-md-8">
+                        {{form_row(edit_form.description)}}
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div id="formcle" class="col-md-8">
+                        {{form_row(edit_form.prix)}}
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div style="text-align: center;" class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-block btn-lg btn-success" value="Edit">Modifier</button>
+                    </div>
+                    {{ form_end(edit_form) }}
+                    <div class="col-md-5"></div>
+                </div>
+
+                <div style="text-align: center" class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <a id="retour" class="btn btn-block btn-lg btn-success" href="{{ path('produit_index') }}">Retour</a>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div  class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div style="color:firebrick;" id="buttonretour">
+                    <i style="font-weight: 400;" class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <a style="color:firebrick;" id="button" href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                </div>
+            </div>
+            <div class="col-md-10"></div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+
+
+
+
+
+
+
+
+
+

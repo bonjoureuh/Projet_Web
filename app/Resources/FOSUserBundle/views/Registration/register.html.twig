@@ -1,0 +1,79 @@
+{% trans_default_domain "FOSUserBundle" %} {% extends "base_reg.html.twig" %} {% block content %}
+
+<body>
+
+    <!--<div class="container-fluid">-->
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                    <!-- BEGIN REGISTRATION FORM -->
+                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                <h3 class="font-green" ><b>Enregistrement</b></h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_widget(form.username, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'Nom d utilisateur' } }) }} {% for errorItem in form.username.vars.errors %}
+                        <span class="help-inline">{{ errorItem.message }}</span> {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder':'E-mail'} }) }} {% for errorItem in form.email.vars.errors %}
+                        <span class="help-inline">{{ errorItem.message }}</span> {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4">
+                     <div class="form-group">
+                           {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder':'Mot de passe'} }) }} {% for errorItem in form.plainPassword.first.vars.errors %}
+                          <span class="help-inline">{{ errorItem.message }}</span> {% endfor %}
+                     </div>
+                 </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4">
+                     <div class="form-group">
+                         {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder':'Repeter mot de passe'} }) }} {% for errorItem in form.plainPassword.second.vars.errors %}
+                         <span class="help-inline">{{ errorItem.message }}</span> {% endfor %}
+                     </div>
+                 </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-5"></div>
+                 <div class="center-block col-md-2">         
+                    <div class="form-actions">
+                        <button type="submit" id="register-submit-btn" class="btn btn-success">Incription</button>
+                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                  <div class="col-md-5"></div>
+                     <div class="center-block col-md-2">            
+
+                         <a class="btn btn-default" href="{{ path('fos_user_security_login') }}">Retour au login</a>
+
+                 </div>
+             </div>
+    
+    
+</body>
+
+                        {{ form_rest(form) }} {{ form_end(form) }}
+
+
+            
+
+
+                <!-- END REGISTRATION FORM -->
+                {% endblock content %}

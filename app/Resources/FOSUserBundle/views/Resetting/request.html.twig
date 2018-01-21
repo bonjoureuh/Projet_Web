@@ -1,0 +1,51 @@
+<html lang="fr">
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://use.fontawesome.com/e45e963e7b.js"></script>
+    <style>
+        #a:hover {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div style="font-size:25px;" class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h1>Mot de passe<a id="a"> Oublié</a></h1>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    <div style="font-size:25px;" class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group" class="col-md-4">
+                <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request ">
+                    <input placeholder="Nom d'utilisateur" type="text" id="username" name="username" required="required" />
+
+                    <input type="submit" value="Confirmer" />
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+
+</body>

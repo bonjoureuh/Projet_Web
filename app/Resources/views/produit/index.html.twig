@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+      <script src="https://use.fontawesome.com/e45e963e7b.js"></script>
+    
+    <style>
+        #title {
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 10%;
+        }
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+
+
+        #border {
+
+            border-collapse: separate;
+            border-width: 2px;
+            border-radius: 10px;
+            border-spacing: 20px 20px;
+        }
+
+        #cont {
+            margin-bottom: 2%;
+            text-align: center;
+        }
+
+        .action {
+            cursor: pointer;
+            font-weight: normal;
+            color: #333;
+        }
+
+        .action:hover {
+            color: #777;
+        }
+
+        #button {
+            font-weight: 400;
+            font-size: 15px;
+            color: #337ab7;
+            padding-bottom: 8%;
+        }
+
+        #button:hover {
+            color: #777;
+            cursor: pointer;
+
+        }
+
+        .hr {
+            text-align: center;
+            border-top: 1.5px solid #777;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class=container>
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <h1 id="title">Liste des<a> PRODUITS</a></h1>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+
+    {% for produit in produits %}
+    <div id="cont" class=container>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div style="margin-bottom: 4%;"><a>Nom</a></div>
+                        <div style="margin-bottom: 4%;">{{produit.nom}}</div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div style="margin-bottom: 4%;"><a>Quantité</a></div>
+                        <div style="margin-bottom: 4%;">{{produit.quantite}}</div>
+                    </div>
+                    <div class="col-md-2">
+                        <div style="margin-bottom: 4%;"><a>Descrpition</a></div>
+                        <div style="margin-bottom: 4%;">{{produit.description}}</div>
+                    </div>
+                    <div class="col-md-2">
+                        <div style="margin-bottom: 4%;"><a>Prix</a></div>
+                        <div style="margin-bottom: 4%;">{{produit.prix}}</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="margin-bottom: 4%;"><a>Actions</a></div>
+                        <a style="margin-bottom: 4%;" class="action" href="{{ path('produit_edit', { 'id': produit.id }) }}">Modifier |</a>
+                        <a style="margin-bottom: 4%;" class="action" href="{{ path('produit_show', { 'id': produit.id }) }}"> Afficher</a>
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+    <div style="text-align: center;" class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <a href="{{ path('produit_new') }}">
+                    <div id="button">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <a href="{{ path('produit_new') }}">  Ajouter un Produit</a>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+
+    
+
+    <div id="retour" class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div style="color:firebrick;" id="buttonretour">
+                    <i style="font-weight: 400;" class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <a style="color:firebrick;" id="button" href="{{ path('fos_user_security_logout') }}">Deconnexion</a>
+                </div>
+            </div>
+            <div class="col-md-10"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

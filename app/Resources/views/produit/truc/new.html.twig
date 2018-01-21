@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="./js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" crossorigin="anonymous">
+
+
+
+    <script src="./js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    
+    <script src="https://use.fontawesome.com/e45e963e7b.js"></script>
+
+    <style>
+        #retour {
+            background-color: #337ab7;
+            border-color: #337ab7;
+            margin-top: 5%;
+        }
+        
+        #formcle {
+            
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <h3 style="color:#337ab7;" class="text-center text-danger">
+                            AJOUTER UN APPAREIL
+                        </h3>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+
+                {{ form_start(form) }}
+                <div class="row">
+                    <div id="exampleInputEmail1" class="col-md-2"></div>
+                    <div class="col-md-8">
+                        {{form_row(form.device)}}
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div id="formcle" class="col-md-8">
+                        {{form_row(form.clee)}}
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div style="text-align: center;" class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <button  type="submit" class="btn btn-block btn-lg btn-success">Ajouter</button>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+                
+                <div style="text-align: center" class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <a id="retour" class="btn btn-block btn-lg btn-success" href="{{ path('sshkey_index') }}">Retour</a>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+
+    
+
+
+
+</body>
+
+</html>
